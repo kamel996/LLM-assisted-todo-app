@@ -1,23 +1,30 @@
-version: '3.7'
-
 services:
+  # Service for the Todo API
   api:
+    # Build the Docker image from the Dockerfile in the current directory
     build: .
+    # Map port 3000 of the container to port 3000 on the host
     ports:
       - "3000:3000"
 
+  # Service for Prometheus, for monitoring metrics
   prometheus:
+    # Use the official Prometheus image from Docker Hub
     image: prom/prometheus
+    # Mount the local prometheus.yml configuration file into the container
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    # Expose port 9090 to access Prometheus web UI
     ports:
       - "9090:9090"
 
+  # Service for Grafana, for visualizing metrics
   grafana:
+    # Use the official Grafana image from Docker Hub
     image: grafana/grafana
+    # Map port 3000 of the container to port 3001 on the host
     ports:
       - "3001:3000"
+    # Set the default admin password for Grafana
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
-
-

@@ -4,7 +4,7 @@ This project implements a simple RESTful API for managing a to-do list.
 
 ## Installation
 
-- Clone the repository: `git clone `
+- Clone the repository: `git clone https://github.com/kamel996/LLM-assisted-todo-app.git`
 - Install dependencies: `npm install`
 
 ## Usage
